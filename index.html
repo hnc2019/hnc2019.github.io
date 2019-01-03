@@ -1,15 +1,22 @@
+<!DOCTYPE html>
 <html>
-    <head>
-	<meta name="robots" content="noindex">
+  <head>
+    <meta charset="UTF-8">
+    <title>Slot Status</title>
 	<link href="SmartParkslog.css" rel="stylesheet">
-       <title>HNC</title>
-	   <!-- Latest compiled and minified CSS -->
-	   <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-database.js"></script>	   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 <script>
-  var config = {
+  
+  // Initialize Firebase
+ var config = {
     apiKey: "AIzaSyD69Hw_4f66CzewnlxzBvtTKm4o6IAV1N4",
     authDomain: "holy-name-church.firebaseapp.com",
     databaseURL: "https://holy-name-church.firebaseio.com",
@@ -17,104 +24,43 @@
     storageBucket: "holy-name-church.appspot.com",
     messagingSenderId: "3690306279"
   };
-function myFunctio(){
-  var ref = firebase.database().ref();
-
-ref.on("value", function(snapshot) {
-   console.log(snapshot.val());
-}, function (error) {
-   console.log("Error: " + error.code);
-});}
-
-
   firebase.initializeApp(config);
-  function writeUserData(email,name,time) {
-  firebase.database().ref('NOTIFICATIONS/' + time).set({
-    Society: name,
-    Message: email
-  });
-}
+  </script>
+  <script src="view.css"></script>
+  <link href="view.css" rel="stylesheet">
+	<script src="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.css" />
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: 'hncdemo.html',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
 
-function myFunction(){
-
-var a = document.getElementById("s").value;
-
-var d = document.getElementById("sma").value;
-
-
-var dt = new Date();
-var dar=(("0"+(dt.getMonth()+1)).slice(-2)) +" "+ (("0"+dt.getDate()).slice(-2)) +" "+ (dt.getFullYear());
-var darr =(dt.getHours()) +":"+ (dt.getMinutes())+":"+ (dt.getSeconds());
-var timeee="Posted on "+dar+" at "+darr;
-writeUserData(a,d,timeee);
-}
-
-</script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="jsq.js"></script>
-	   <link href="SmartParkslog.css" type="css" rel="stylesheet"/>
-	   <link href="SmartParks.css" type="css" rel="stylesheet"/>
-	</head>
-
-	<header>
-	
-	<nav class="navbar navbar-default" id="opp">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-         <p class="if"> Holy Name Church</p>
-        </div>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-	  	  <li><a href="SmartParks.html">Login</a></li>
-        <li><a href="hncdemonotifi.html">Notifications List</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-    </header>
-    <body class="yelp" > 
-		
-<h1 class="he">
-	<center>
-	<br>Holy Name Church<br><br>
-	</center>
-	</h1>
-	<center><div class="s">
-	<p id="lin">Create Notification</p>
-	<div id="oop">
-  <input type="text" id="s" name="firstname" placeholder="Society Name">
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+  </head>
   
-			<br><br>
+
+  <body class="uo">
+    <!-- The surrounding HTML is left untouched by FirebaseUI.
+         Your app may use that space for branding, controls and other customizations.-->
+
+  <center><p class="ops">Login Page</p>
+    <p class="opl">Welcome please sign in first</p></center>
+	<div id="firebaseui-auth-container"><p></p></div>
+	<footer><div class="ret"><center> <small> <font color="white" > Copyright © 2017 Smart Parks Limited.<br>Created by <a href="https://www.linkedin.com/in/adriealle-dsouza-955755117">Adriealle Dsouza</a> </font> </small></center></div></footer>
+
+  </body>
   
-			<textarea name="comment" id="sma" form="usrform" placeholder="Enter Message"></textarea>
-
-			<br><br>
-
-</div>
-<button onclick="myFunction()" class="trew">Create account</button></center>
-<footer><center> <small> <font color="white" ><br><br><br><br>Holy Name Church<br>Created by <a href="https://www.linkedin.com/in/adriealle-dsouza-955755117">Adriealle Dsouza</a></font> </small></center></footer>
-  </div>
-	
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	</body>
 </html>
