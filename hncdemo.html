@@ -26,13 +26,18 @@ ref.on("value", function(snapshot) {
    console.log("Error: " + error.code);
 });}
 
-
+function signout(){
+    firebase.auth().signOut();
+    alert('Notification published');
+    window.location='hncdemonotifi.html';
+}
   firebase.initializeApp(config);
   function writeUserData(email,name,time) {
   firebase.database().ref('NOTIFICATIONS/' + time).set({
     Society: name,
     Message: email
   });
+	signout();  
 }
 
 function myFunction(){
