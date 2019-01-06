@@ -79,7 +79,7 @@ firebaseRefff.on('child_added', snap=> {
 var slot=snap.getKey();	
 var alloted=snap.child("Society").val();
 var date=snap.child("Message").val();
-$("table tbody").append("<tr><td><b>"+slot+"</b>"+"<br>"+date+"<br>"+alloted"</td></tr>");
+$("table tbody").append("<tr><td><b>"+slot+"</b><br>"+date+"<br>"+alloted"</td></tr>");
     
 	});
 
@@ -89,8 +89,3 @@ $("table tbody").append("<tr><td><b>"+slot+"</b>"+"<br>"+date+"<br>"+alloted"</t
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 </html>
- 
- 
- 
- 
- 
